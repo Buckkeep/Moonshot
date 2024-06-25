@@ -58,7 +58,7 @@ struct AstronautScrollView: View {
 
 #Preview {
     let missions: [Mission] = Bundle.main.decode("missions.json")
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
+//    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
     return AstronautScrollView(mission: missions[3], crew: [])
         .preferredColorScheme(.dark)
