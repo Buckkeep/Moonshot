@@ -9,38 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var isGrid = true
-    
-    @ViewBuilder
-    private var ViewPreference: some View {
-            if isGrid {
-                ContentGridView()
-            } else {
-                ContentListView()
-            }
-    }
+    @State var shouldShowGrid = true
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                ViewPreference
+                MixedView(shouldShowGrid: $shouldShowGrid)
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
             .toolbar {
                 Button {
-                  isGrid.toggle()
+                  shouldShowGrid.toggle()
                 } label: {
-                    isGrid ? Text("List View") : Text("Grid View")
+                    shouldShowGrid ? Text("List View") : Text("Grid View")
                 }
             }
         }
     }
     
-
 }
 
 #Preview {
-    ContentView()
+    ContentView(shouldShowGrid: true)
 }
